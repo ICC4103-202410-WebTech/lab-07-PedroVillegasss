@@ -9,9 +9,9 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ApplicationRecord
-  has_many :posts, dependent: destroy
+  has_many :posts, dependent: :destroy
 
-  validates :name, presence: true, message: "The user should have a name"
-  validates :email, presence: true, uniqueness: true, email: true, message: "The user should have a valid email"
-  validates :password, presence: true, length: { minimum: 6 }, message: "The user's password should have a minimum length of 6 characters."
+  validates :name, presence: { message: "The user should have a name" }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "The user should have a valid email" }
+  validates :password, presence: true, length: { minimum: 6, message: "The user's password should have a minimum length of 6 characters" }
 end
