@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
+  belongs_to :parent_post_id, class_name: 'Post', optional: true, foreign_key: 'parent_post_id'
+  has_many  :child_posts, class_name: 'Post', foreign_key: 'parent_post_id'
   belongs_to :user
+  has_many :post_tags
   has_many :tags, :through => :post_tags
 
   validates :title, presence: { message: "The post should have a title" }
