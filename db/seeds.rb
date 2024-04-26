@@ -20,8 +20,8 @@ usr1 = User.create(
 )
 
 usr2 = User.create(
-  name: "Pedro Villegas",
-  email: "ppvillegas@gmail.com",
+  name: "John Doe",
+  email: "johndoe@gmail.com",
   password: "123456789"
 )
 
@@ -44,7 +44,7 @@ usr5 = User.create(
 )
 
 pst1 = Post.create!(
-  title: "Post title",
+  title: "Post 1",
   content: "Post content",
   published_at: Time.now,
   likes_count: 12,
@@ -131,7 +131,7 @@ tg1 = Tag.create(
 )
 
 tg2 = Tag.create(
-  name: "#nudeproject"
+  name: "Tag 1"
 )
 
 tg3 = Tag.create(
